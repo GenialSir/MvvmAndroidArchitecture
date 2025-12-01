@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:padding="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_load_more">
+
+    <!-- 圆形进度条 -->
+    <ProgressBar
+        android:id="@+id/pb_load_more"
+        style="@android:style/Widget.Material.ProgressBar.Small"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:visibility="gone"/>
+
+    <!-- 加载中提示 -->
+    <TextView
+        android:id="@+id/tv_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="加载中..."
+        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        android:layout_marginStart="8dp"
+        android:visibility="gone"/>
+
+    <!-- 错误提示 -->
+    <TextView
+        android:id="@+id/tv_load_more_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_red_dark"
+        android:text="加载失败"
+        android:textSize="14sp"
+        android:visibility="gone"
+        android:layout_marginStart="8dp"/>
+
+    <!-- 重试按钮 -->
+    <Button
+        android:id="@+id/btn_load_more_retry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="重试"
+        android:textSize="14sp"
+        android:visibility="gone"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:textColor="@android:color/white"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:layout_gravity="center_vertical"/>
+
+</LinearLayout>

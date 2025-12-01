@@ -1,0 +1,25 @@
+pluginManagement {
+    repositories {
+        google()
+        jcenter()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://jitpack.io'}
+    }
+}
+
+rootProject.name = "MvvmAndroidArchitecture"
+include ':app'
+include ':lib-mvvm-common'
+include ':lib-autosize'
+include ':lib-permissionx'
+include ':lib-mp-chart'
+
+//include ':nativelib-crash_handler'

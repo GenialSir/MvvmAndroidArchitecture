@@ -1,0 +1,96 @@
+plugins {
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    namespace 'com.genialsir.mvvmcommon'
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 26
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+
+    buildFeatures {
+        compose false
+        viewBinding = true
+    }
+}
+
+dependencies {
+    // App UI 专用
+    api libs.androidx.appcompat
+    api libs.androidx.material
+    api libs.androidx.activity.ktx
+    api libs.androidx.annotation
+    api libs.androidx.navigation.fragment
+    api libs.androidx.navigation.ui.ktx
+    // 下拉刷新
+    api libs.androidx.swiperefreshlayout
+    // Paging分页库
+    api libs.androidx.paging.runtime.ktx
+    // DataStore
+    api libs.androidx.datastore.preferences
+
+    // Kotlin 基础
+    api libs.kotlin.stdlib
+    api libs.kotlin.reflect
+
+    // Lifecycle / LiveData / ViewModel
+    api libs.lifecycle.viewmodel.ktx
+    api libs.lifecycle.livedata.ktx
+
+    // 网络 & JSON
+    api libs.retrofit.converter.moshi
+    api libs.okhttp.logging.interceptor
+    api libs.moshi
+    kapt libs.moshi.kotlin.codegen
+
+    // Mqtt库
+    api libs.org.eclipse.paho.client.mqttv3
+
+    // 图片加载（放到公共库，app 直接用即可）
+    api(libs.glide) {
+        exclude group: "com.android.support"
+    }
+    api libs.picasso
+
+    // Hilt (Application 留在 app)
+    implementation libs.hilt.android
+    kapt libs.hilt.compiler
+
+    // espresso测试库
+    implementation libs.androidx.espresso.idling.resource
+    // 协程测试 & 单元测试
+    testImplementation libs.junit
+    testImplementation libs.mockk
+    testImplementation libs.kotlinx.coroutines.test
+    testImplementation libs.arch.core.testing
+
+    androidTestImplementation libs.androidx.junit
+    androidTestImplementation libs.assertj
+    androidTestImplementation libs.espresso.intents
+    androidTestImplementation libs.espresso.idling.resource
+    androidTestImplementation libs.espresso.contrib
+    androidTestImplementation libs.hilt.android.testing
+    kaptAndroidTest libs.hilt.android.compiler
+}

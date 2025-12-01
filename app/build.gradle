@@ -1,0 +1,132 @@
+// app/build.gradle (Groovy DSL, 可用 TOML 管理依赖)
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
+}
+
+//读取签名证书的密码和名字
+def keystorePropertiesFile = rootProject.file("release-key/keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+android {
+    namespace 'com.genialsir.mvvmarchitecture'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.genialsir.mvvmarchitecture'
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        sign {
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+        }
+    }
+
+    buildTypes {
+        release {
+            debuggable = true
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            //混淆开关的配置（在主项目中启用minifyEnabled true时，所有依赖的库（包括你自己编写的库和第三方库）
+            //都会被混淆，即使这些库单独设置了minifyEnabled false。这是因为minifyEnabled是一个全局设置，
+            //它会影响整个构建过程，包括所有的依赖项。）
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.sign
+        }
+
+        debug {
+            debuggable = true
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            //混淆开关的配置
+            minifyEnabled false
+            shrinkResources false
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.sign
+        }
+    }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+
+
+    buildFeatures {
+        compose false
+        viewBinding = true
+    }
+
+    //打包名称设置
+    android.applicationVariants.configureEach { variant ->
+        variant.outputs.configureEach {
+            outputFileName = "MvvmArchitecture_" +
+                    "${defaultConfig.versionName}(${defaultConfig.versionCode})_" + getCurrentFlavor() + "_${releaseTime()}" + "_${variant.buildType.name}.apk"
+        }
+    }
+
+}
+
+static def releaseTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+
+static def getCurrentFlavor() {
+    return "Nuandong"
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    // 公共库
+    implementation project(path: ':lib-mvvm-common')
+    // 屏幕适配库
+    implementation project(path: ':lib-autosize')
+    // 动态权限库
+    implementation project(path: ':lib-permissionx')
+    // 图表库
+    implementation project(path: ':lib-mp-chart')
+
+    // TensorFlow Lite (只在 app 用)
+    implementation libs.tensorflow.lite
+
+    // Hilt
+    implementation libs.hilt.android
+    kapt libs.hilt.compiler
+
+    // espresso测试库
+    implementation libs.androidx.espresso.idling.resource
+    // 协程测试 & 单元测试
+    testImplementation libs.junit
+    testImplementation libs.mockk
+    testImplementation libs.kotlinx.coroutines.test
+    testImplementation libs.arch.core.testing
+
+    androidTestImplementation libs.androidx.junit
+    androidTestImplementation libs.assertj
+    androidTestImplementation libs.espresso.intents
+    androidTestImplementation libs.espresso.idling.resource
+    androidTestImplementation libs.espresso.contrib
+    androidTestImplementation libs.hilt.android.testing
+    kaptAndroidTest libs.hilt.android.compiler
+}
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/tab_home">
+
+    <fragment
+        android:id="@+id/tab_home"
+        android:name="com.genialsir.mvvmarchitecture.ui.home.HomeFragment"
+        android:label="首页"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/tab_discover"
+        android:name="com.genialsir.mvvmarchitecture.ui.discover.DiscoverFragment"
+        android:label="发现"
+        tools:layout="@layout/fragment_discover" />
+
+    <fragment
+        android:id="@+id/tab_profile"
+        android:name="com.genialsir.mvvmarchitecture.ui.profile.ProfileFragment"
+        android:label="我的"
+        tools:layout="@layout/fragment_profile" />
+
+</navigation>
+

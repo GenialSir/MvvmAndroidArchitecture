@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.genialsir.mvvmarchitecture.ai.DrawView
+        android:id="@+id/drawView"
+        android:layout_width="280px"
+        android:layout_height="280px"
+        android:background="#FFFFFF"/>
+
+    <Button
+        android:id="@+id/btnPredict"
+        android:text="识别"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnClear"
+        android:text="清除"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:text="预测结果: "
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

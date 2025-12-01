@@ -1,0 +1,24 @@
+<resources>
+    <!-- 错误码对应中文文案 -->
+    <string name="no_internet">请检查您的网络连接</string>
+    <string name="network_error">网络错误，无法获取数据，请重试！</string>
+    <string name="default_error">发生错误，请重试</string>
+    <string name="empty_response">服务器未返回数据</string>
+    <string name="timeout_error">请求超时，请重试</string>
+    <string name="parse_error">数据解析失败</string>
+    <string name="ssl_error">SSL 错误</string>
+    <string name="unknown_host">无法解析主机</string>
+    <string name="connect_error">无法连接服务器</string>
+    <string name="unknown_error">未知错误</string>
+    <string name="password_error">密码错误</string>
+    <string name="username_error">用户名无效</string>
+    <string name="check_your_fields">请检查输入字段</string>
+
+    <string name="search_error">未找到相关内容</string>
+    <string name="invalid_username">用户名无效</string>
+    <string name="invalid_password">密码长度必须大于4位</string>
+    <string name="invalid_username_and_password">请检查用户名和密码</string>
+    <string name="add_to_favorite">添加到收藏</string>
+    <string name="test_password">ahmed</string>
+    <string name="test_email">ahmed@ahmed.ahmed</string>
+</resources>
