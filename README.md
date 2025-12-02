@@ -1,10 +1,9 @@
 # MvvmAndroidArchitecture
-#### 描述
 一个基于 **MVVM + Kotlin + Hilt + Retrofit2 + Coroutines + Kotlin Flow** 搭建的 Android 应用架构模板，包含网络层封装、数据状态管理、依赖注入、通用基类、统一错误处理以及 mockK + Espresso +
 Junit5 测试环境，适合作为中小型项目架构基础。
 <img width="770" height="230" alt="MVVM1" src="https://github.com/user-attachments/assets/6d385c51-5e28-4471-9ba4-3b732cfee5a5" />
 
-## 特性
+## 特性 Features
 -  ✔  **MVVM 架构**
 -  ✔ **Hilt** 依赖注入（Module、ViewModel 注入）
 -  ✔ **Retrofit2 + OkHttp3** 网络封装、统一错误处理
@@ -19,16 +18,15 @@ Junit5 测试环境，适合作为中小型项目架构基础。
 
 #### 借鉴对应项目库地址
 * MVVM参考库
-    * https://github.com/ahmedeltaher/MVVM-Kotlin-Android-Architecture
+  * https://github.com/ahmedeltaher/MVVM-Kotlin-Android-Architecture
 * 屏幕适配库
-    * https://github.com/JessYanCoding/AndroidAutoSize
+  * https://github.com/JessYanCoding/AndroidAutoSize
 * 日志库
-    * https://github.com/elvishew/xLog
+  * https://github.com/elvishew/xLog
 * 图标库
-    * https://github.com/PhilJay/MPAndroidChart
+  * https://github.com/PhilJay/MPAndroidChart
 * 权限库
-    * https://github.com/guolindev/PermissionX
+  * https://github.com/guolindev/PermissionX
 
-## 关于
-如对你有帮忙，欢迎你留个Star支持一下，谢谢！
+
 
