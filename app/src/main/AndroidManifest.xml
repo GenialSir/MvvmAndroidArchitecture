@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppTheme">
 
-        <!-- TODO 随后按设计的分辨率配置    -->
+        <!-- TODO 按实际设计的分辨率配置    -->
         <meta-data
             android:name="design_width_in_dp"
             android:value="411" />
@@ -50,10 +50,8 @@
         </activity>
         <activity android:name="com.genialsir.mvvmarchitecture.ui.login.LoginActivity"/>
         <activity android:name="com.genialsir.mvvmarchitecture.ui.MainActivity" />
-        <activity android:name="com.genialsir.mvvmarchitecture.ui.recipe.RecipeActivity" />
         <activity android:name="com.genialsir.mvvmarchitecture.ai.TensorFlowActivity" />
         <activity android:name="com.genialsir.mvvmarchitecture.ui.adjustfont.AdjustFontActivity" />
-        <activity android:name="com.genialsir.mvvmarchitecture.ui.linechart.LineChartActivity" />
         <activity android:name="com.genialsir.mvvmarchitecture.ui.web.NewsWebActivity" />
 
     </application>

@@ -140,7 +140,7 @@
                 android:src="@drawable/ic_arrow_right" />
         </LinearLayout>
 
-        <!-- 示例操作项：关于我们 -->
+        <!-- 示例操作项：关于暖东 -->
         <LinearLayout
             android:id="@+id/ll_option_about"
             android:orientation="horizontal"
@@ -163,7 +163,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="关于我们"
+                android:text="关于暖东"
                 android:textSize="16sp"
                 android:textColor="#333333"
                 android:layout_marginStart="12dp" />

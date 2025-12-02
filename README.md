@@ -1,37 +1,34 @@
 # MvvmAndroidArchitecture
+#### 描述
+一个基于 **MVVM + Kotlin + Hilt + Retrofit2 + Coroutines + Kotlin Flow** 搭建的 Android 应用架构模板，包含网络层封装、数据状态管理、依赖注入、通用基类、统一错误处理以及 mockK + Espresso +
+Junit5 测试环境，适合作为中小型项目架构基础。
+<img width="770" height="230" alt="MVVM1" src="https://github.com/user-attachments/assets/6d385c51-5e28-4471-9ba4-3b732cfee5a5" />
 
-#### 介绍
-Mvvm Android Architecture
-
-#### 软件架构
-软件架构说明
-
-
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+## 特性
+-  ✔  **MVVM 架构**
+-  ✔ **Hilt** 依赖注入（Module、ViewModel 注入）
+-  ✔ **Retrofit2 + OkHttp3** 网络封装、统一错误处理
+-  ✔ **Coroutines + ViewModelScope** 异步与生命周期自动管理
+-  ✔ **Kotlin Flow / StateFlow** 响应式数据流
+-  ✔ **Mqtt 协议支持**
+-  ✔ 可扩展的仓库层结构（Repository）
+-  ✔ **mockK + JUnit5** 单元测试支持
+-  ✔ **Espresso** UI 测试模板
+-  ✔ 清晰规整的目录结构，支持团队协作开发
 
 
-#### 特技
+#### 借鉴对应项目库地址
+* MVVM参考库
+    * https://github.com/ahmedeltaher/MVVM-Kotlin-Android-Architecture
+* 屏幕适配库
+    * https://github.com/JessYanCoding/AndroidAutoSize
+* 日志库
+    * https://github.com/elvishew/xLog
+* 图标库
+    * https://github.com/PhilJay/MPAndroidChart
+* 权限库
+    * https://github.com/guolindev/PermissionX
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+## 关于
+如对你有帮忙，欢迎你留个Star支持一下，谢谢！
+

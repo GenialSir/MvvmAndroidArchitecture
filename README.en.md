@@ -1,36 +1,37 @@
 # MvvmAndroidArchitecture
-
 #### Description
-Mvvm Android Architecture
 
-#### Software Architecture
-Software architecture description
-
-#### Installation
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### Instructions
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### Contribution
-
-1.  Fork the repository
-2.  Create Feat_xxx branch
-3.  Commit your code
-4.  Create Pull Request
+A clean and scalable Android application architecture template built with
+MVVM + Kotlin + Hilt + Retrofit2 + Coroutines + Kotlin Flow,
+featuring network abstraction, unified error handling, repository layer design, base classes, state management, as well as a complete mockK + Espresso + JUnit5 testing setup.
+Suitable for small to medium-sized Android projects.
+<img width="770" height="230" alt="MVVM1" src="https://github.com/user-attachments/assets/6d385c51-5e28-4471-9ba4-3b732cfee5a5" />
+## Features
+-  ✔ **MVVM Architecture**
+-  ✔ **Hilt** dependency injection (Modules, ViewModel injection)
+-  ✔ **Retrofit2 + OkHttp3** networking with unified error handling
+-  ✔ **Coroutines + ViewModelScope** for lifecycle-aware asynchronous operations
+-  ✔ **Kotlin Flow / StateFlow** reactive data stream support
+-  ✔ **Mqtt protocol integration**
+-  ✔ Extensible **Repository Layer** for clean data handling
+-  ✔ **mockK + JUnit5** unit testing support
+-  ✔ **Espresso** UI testing templates included
+-  ✔ Clean and well-organized folder structure for team collaboration
 
 
-#### Gitee Feature
+#### Referenced/Open Source Libraries
+* MVVM Reference
+    * https://github.com/ahmedeltaher/MVVM-Kotlin-Android-Architecture
+* Screen Adaptation
+    * https://github.com/JessYanCoding/AndroidAutoSize
+* Logging
+    * https://github.com/elvishew/xLog
+* Chart
+    * https://github.com/PhilJay/MPAndroidChart
+* Permissions
+    * https://github.com/guolindev/PermissionX
 
-1.  You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2.  Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3.  Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4.  The most valuable open source project [GVP](https://gitee.com/gvp)
-5.  The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6.  The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+
+## About
+If this project helps you, please give it a STAR to show your support. Thank you!
+

@@ -1,6 +1,8 @@
 package com.genialsir.mvvmarchitecture
 
+import android.app.Activity
 import android.app.Application
+import android.os.Bundle
 import com.genialsir.autosize.AutoSizeConfig
 import com.genialsir.mvvmcommon.util.LogHelper
 import com.genialsir.mvvmcommon.CommonCore
@@ -18,10 +20,16 @@ class BaseApp : Application() {
     companion object {
         lateinit var context: Application
             private set
+        var currentActivity: Activity? = null
     }
+
 
     override fun onCreate() {
         super.onCreate()
+        context = this
+        // 注册生命周期回调
+        registerActivityLifecycleCallbacks(activityLifecycleCallbacks)
+
         //Java全局异常捕获
         AppCrashHandler.getInstance().init(this, true, "MvvmArchitecture")
         //初始化CommonCore
@@ -32,6 +40,37 @@ class BaseApp : Application() {
         FontManager.init(this)
         //让屏幕适配逻辑忽略系统字体缩放设置
         AutoSizeConfig.getInstance().setExcludeFontScale(true)
+    }
+
+    //生命周期回调
+    private val activityLifecycleCallbacks = object : ActivityLifecycleCallbacks {
+
+        override fun onActivityCreated(
+            activity: Activity,
+            savedInstanceState: Bundle?
+        ) {
+            currentActivity = activity
+        }
+
+        override fun onActivityStarted(activity: Activity) {
+            currentActivity = activity
+        }
+
+        override fun onActivityResumed(activity: Activity) {
+            currentActivity = activity
+        }
+        override fun onActivityPaused(activity: Activity) {}
+
+        override fun onActivityStopped(activity: Activity) {}
+
+        override fun onActivitySaveInstanceState(
+            activity: Activity,
+            outState: Bundle
+        ) {}
+
+        override fun onActivityDestroyed(activity: Activity) {
+            if (currentActivity == activity) currentActivity = null
+        }
     }
 
 }
