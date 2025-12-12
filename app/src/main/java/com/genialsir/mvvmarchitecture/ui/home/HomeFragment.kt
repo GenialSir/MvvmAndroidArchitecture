@@ -20,7 +20,6 @@ import kotlinx.coroutines.launch
 /**
  * @author genialsir@163.com (GenialSir) on 2025/9/16
  */
-
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 

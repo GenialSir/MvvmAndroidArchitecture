@@ -14,9 +14,6 @@ import com.genialsir.mvvmarchitecture.ui.web.NewsWebActivity
 /**
  * @author genialsir@163.com (GenialSir) on 2025/12/1
  */
-
-
-
 class AiNewsAdapter :
     PagingDataAdapter<AINewsItem, AiNewsAdapter.NewsViewHolder>(DIFF_CALLBACK) {
 

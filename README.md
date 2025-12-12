@@ -23,7 +23,7 @@ Junit5 测试环境，适合作为中小型项目架构基础。
   * https://github.com/JessYanCoding/AndroidAutoSize
 * 日志库
   * https://github.com/elvishew/xLog
-* 图标库
+* 图表库
   * https://github.com/PhilJay/MPAndroidChart
 * 权限库
   * https://github.com/guolindev/PermissionX

@@ -9,9 +9,12 @@ import com.genialsir.mvvmarchitecture.ui.home.HomeFragment
 import com.genialsir.mvvmarchitecture.ui.profile.ProfileFragment
 import com.genialsir.mvvmcommon.base.BaseActivity
 import com.genialsir.mvvmcommon.base.BaseFragment
+import com.genialsir.mvvmcommon.bus.GlobalEventBus
 import com.genialsir.mvvmcommon.util.LogUtil
 import com.genialsir.permissionx.PermissionX
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 /**
@@ -60,6 +63,12 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initListener() {
+        //校验是否需要重新登录
+        CoroutineScope(Dispatchers.Main).launch {
+            GlobalEventBus.tokenInvalidEvent.collect {
+                LogUtil.d(TAG, "处理Token失效逻辑")
+            }
+        }
         //创建主页的Fragment
         configFragment()
     }

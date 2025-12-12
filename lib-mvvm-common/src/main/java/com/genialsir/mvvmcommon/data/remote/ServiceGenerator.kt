@@ -6,6 +6,7 @@ import com.genialsir.mvvmcommon.constant.BASE_URL
 import com.genialsir.mvvmcommon.data.remote.interceptor.CommonParamInterceptor
 import com.genialsir.mvvmcommon.data.remote.interceptor.CurlLoggingInterceptor
 import com.genialsir.mvvmcommon.data.remote.interceptor.HeaderInterceptor
+import com.genialsir.mvvmcommon.data.remote.interceptor.TokenInterceptor
 import com.genialsir.mvvmcommon.data.remote.moshi.FlexibleStringListAdapter
 import com.genialsir.mvvmcommon.data.remote.moshi.MyStandardJsonAdapters
 import com.genialsir.mvvmcommon.util.LogUtil
@@ -56,6 +57,7 @@ class ServiceGenerator @Inject constructor() {
         builder.addInterceptor(httpLoggingInterceptor)
         builder.addInterceptor(CurlLoggingInterceptor())
         builder.addInterceptor(HeaderInterceptor())
+        builder.addInterceptor( TokenInterceptor())
         builder.addInterceptor(CommonParamInterceptor())
         builder.connectTimeout(timeoutConnect, TimeUnit.SECONDS)
         builder.readTimeout(timeoutRead, TimeUnit.SECONDS)
