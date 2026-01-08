@@ -10,7 +10,7 @@ import com.genialsir.mvvmarchitecture.databinding.FragmentDiscoverBinding
 import com.genialsir.mvvmarchitecture.mqtt.TopicManager
 import com.genialsir.mvvmcommon.base.BaseFragment
 import com.genialsir.mvvmcommon.listener.setOnIntervalClickListener
-import com.genialsir.mvvmcommon.mqtt.MqttController
+import com.genialsir.iothelper.mqtt.MqttController
 import com.genialsir.mvvmcommon.util.LogUtil
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.components.Legend.LegendForm

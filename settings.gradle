@@ -19,7 +19,7 @@ rootProject.name = "MvvmAndroidArchitecture"
 include ':app'
 include ':lib-mvvm-common'
 include ':lib-autosize'
+include ':lib-iot-helper'
 include ':lib-permissionx'
 include ':lib-mp-chart'
-
 //include ':nativelib-crash-handler'

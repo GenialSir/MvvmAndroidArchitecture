@@ -14,12 +14,12 @@ keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     namespace 'com.genialsir.mvvmarchitecture'
-    compileSdk 34
+    compileSdk rootProject.ext.compileSdkVersion
 
     defaultConfig {
         applicationId 'com.genialsir.mvvmarchitecture'
-        minSdk 26
-        targetSdk 34
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -101,6 +101,8 @@ dependencies {
     implementation project(path: ':lib-mvvm-common')
     // 屏幕适配库
     implementation project(path: ':lib-autosize')
+    // IOT辅助库
+    implementation project(path: ':lib-iot-helper')
     // 动态权限库
     implementation project(path: ':lib-permissionx')
     // 图表库

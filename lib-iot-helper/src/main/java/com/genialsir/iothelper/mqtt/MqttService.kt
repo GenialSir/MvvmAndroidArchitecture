@@ -1,4 +1,4 @@
-package com.genialsir.mvvmcommon.mqtt
+package com.genialsir.iothelper.mqtt
 
 import android.app.*
 import android.content.Context
@@ -7,8 +7,6 @@ import android.os.Build
 import android.os.IBinder
 import android.util.Log
 import androidx.core.app.NotificationCompat
-import com.genialsir.mvvmcommon.R
-import com.genialsir.mvvmcommon.util.LogUtil
 import org.eclipse.paho.client.mqttv3.*
 
 /**
@@ -61,19 +59,19 @@ class MqttService : Service() {
     }
 
     private fun connectMqtt() {
-        mqttClient = MqttAsyncClient(MqttConfig.SERVER_URI, clientId, null)
+        mqttClient = MqttAsyncClient(MqttConfig.instance.serverUri, clientId, null)
         val options = MqttConnectOptions().apply {
-            userName = MqttConfig.USERNAME
-            password = MqttConfig.PASSWORD.toCharArray()
+            userName = MqttConfig.instance.username
+            password = MqttConfig.instance.password.toCharArray()
             isAutomaticReconnect = true
-            keepAliveInterval = MqttConfig.KEEP_ALIVE
-            connectionTimeout = MqttConfig.CONNECTION_TIMEOUT
+            keepAliveInterval = MqttConfig.instance.keepAlive
+            connectionTimeout = MqttConfig.instance.connectionTimeout
             isCleanSession = true
         }
 
         mqttClient?.setCallback(object : MqttCallback {
             override fun connectionLost(cause: Throwable?) {
-                LogUtil.e(TAG, "连接断开：${cause?.message}")
+                Log.e(TAG, "连接断开：${cause?.message}")
                 MqttController.notifyDisconnected()
             }
 
@@ -90,12 +88,12 @@ class MqttService : Service() {
 
         mqttClient?.connect(options, null, object : IMqttActionListener {
             override fun onSuccess(asyncActionToken: IMqttToken?) {
-                LogUtil.i(TAG, "连接成功")
+                Log.i(TAG, "连接成功")
                 MqttController.notifyConnected()
             }
 
             override fun onFailure(asyncActionToken: IMqttToken?, exception: Throwable?) {
-                LogUtil.e(TAG, "连接失败：${exception?.message}")
+                Log.e(TAG, "连接失败：${exception?.message}")
                 MqttController.notifyDisconnected()
             }
         })
@@ -119,23 +117,23 @@ class MqttService : Service() {
             if (mqttClient?.isConnected != true) {
                 val e = IllegalStateException("MQTT 未连接，无法订阅")
                 onError?.invoke(e)
-                LogUtil.e(TAG, e.message ?: "")
+                Log.e(TAG, e.message ?: "")
                 return
             }
 
             mqttClient?.subscribe(topic, qos, null, object : IMqttActionListener {
                 override fun onSuccess(asyncActionToken: IMqttToken?) {
-                    LogUtil.i(TAG, "订阅成功：$topic")
+                    Log.i(TAG, "订阅成功：$topic")
                     onSuccess?.invoke()
                 }
 
                 override fun onFailure(asyncActionToken: IMqttToken?, exception: Throwable?) {
-                    LogUtil.e(TAG, "订阅失败：$topic -> ${exception?.message}")
+                    Log.e(TAG, "订阅失败：$topic -> ${exception?.message}")
                     onError?.invoke(exception ?: Exception("Unknown subscribe error"))
                 }
             })
         } catch (e: Exception) {
-            LogUtil.e(TAG, "Subscribe 调用崩溃：${e.message}")
+            Log.e(TAG, "Subscribe 调用崩溃：${e.message}")
             onError?.invoke(e)
         }
     }
@@ -144,9 +142,9 @@ class MqttService : Service() {
     fun unsubscribe(topic: String) {
         try {
             mqttClient?.unsubscribe(topic)
-            LogUtil.i(TAG, "已取消订阅：$topic")
+            Log.i(TAG, "已取消订阅：$topic")
         } catch (e: Exception) {
-            LogUtil.e(TAG, "取消订阅失败：$topic -> ${e.message}")
+            Log.e(TAG, "取消订阅失败：$topic -> ${e.message}")
         }
     }
 
@@ -166,7 +164,7 @@ class MqttService : Service() {
         return NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle("MQTT 已连接")
             .setContentText("后台运行中")
-            .setSmallIcon(R.drawable.ic_logo_smart_care)
+            .setSmallIcon(android.R.drawable.stat_notify_sync)
             .setOngoing(true)
             .build()
     }

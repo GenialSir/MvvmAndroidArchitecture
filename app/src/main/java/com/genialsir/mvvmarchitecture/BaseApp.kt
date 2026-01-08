@@ -4,6 +4,8 @@ import android.app.Activity
 import android.app.Application
 import android.os.Bundle
 import com.genialsir.autosize.AutoSizeConfig
+import com.genialsir.iothelper.IotHelperConfig
+import com.genialsir.iothelper.mqtt.MqttConfig
 import com.genialsir.mvvmcommon.util.LogHelper
 import com.genialsir.mvvmcommon.CommonCore
 import com.genialsir.mvvmcommon.util.AppCrashHandler
@@ -40,6 +42,12 @@ class BaseApp : Application() {
         FontManager.init(this)
         //让屏幕适配逻辑忽略系统字体缩放设置
         AutoSizeConfig.getInstance().setExcludeFontScale(true)
+        //初始化Mqtt的配置信息
+        MqttConfig.initialize(
+            IotHelperConfig.Mqtt.EMQX_MQTT_SERVER_URI,
+            "",
+            ""
+        )
     }
 
     //生命周期回调

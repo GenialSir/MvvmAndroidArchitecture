@@ -1,4 +1,4 @@
-package com.genialsir.mvvmcommon.mqtt
+package com.genialsir.iothelper.mqtt
 
 import android.content.Context
 import androidx.lifecycle.LiveData
