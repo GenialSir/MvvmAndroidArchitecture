@@ -28,7 +28,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!-- 前台服务权限（必须） -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <!--   指定前台服务 Android 14 (API 34) 要求指定用途，否则会崩溃 -->
+    <!--  指定前台服务 Android 14 (API 34) 要求指定用途，否则会崩溃 -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
 
     <!-- 声明蓝牙功能 -->
